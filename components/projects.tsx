@@ -13,7 +13,8 @@ const CATEGORY_STYLES: Record<ProjectCategory, string> = {
 
 // Layout rhythm: full-width, then a 60/40 split, then full-width again.
 const LAYOUT = ["md:col-span-12", "md:col-span-7", "md:col-span-5", "md:col-span-12"]
-const PREVIEW_VARIANTS = ["grid", "lines", "arc", "lines"] as const
+// Keep one consistent line texture across hero and all cards.
+const PREVIEW_VARIANTS = ["lines", "lines", "lines", "lines"] as const
 
 function CategoryLabel({ category }: { category: ProjectCategory }) {
   return (
@@ -36,10 +37,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       )}
     >
       <PreviewVisual
+        label="preview"
         variant={PREVIEW_VARIANTS[index]}
         className={cn(
           "w-full transition-opacity duration-300 group-hover:opacity-80",
-          isWide ? "aspect-[16/10] md:aspect-auto md:w-1/2" : "aspect-[16/10]",
+          isWide ? "aspect-[16/9] md:w-1/2" : "aspect-[4/5]",
         )}
       />
       <div className="flex flex-1 flex-col items-start gap-5 p-8 md:p-10">
