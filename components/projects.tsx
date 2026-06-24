@@ -11,11 +11,6 @@ const CATEGORY_STYLES: Record<ProjectCategory, string> = {
   Project: "text-muted-foreground/70",
 }
 
-// Layout rhythm: full-width, then a 60/40 split, then full-width again.
-const LAYOUT = ["md:col-span-12", "md:col-span-7", "md:col-span-5", "md:col-span-12"]
-// Keep one consistent line texture across hero and all cards.
-const PREVIEW_VARIANTS = ["lines", "lines", "lines", "lines"] as const
-
 function CategoryLabel({ category }: { category: ProjectCategory }) {
   return (
     <span className={cn("small-caps flex items-center gap-2 text-xs", CATEGORY_STYLES[category])}>
@@ -25,46 +20,62 @@ function CategoryLabel({ category }: { category: ProjectCategory }) {
   )
 }
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const isWide = LAYOUT[index] === "md:col-span-12"
+function CardBody({ project }: { project: Project }) {
   return (
-    <Link
-      href={`/projects/${project.slug}`}
-      className={cn(
-        "group flex flex-col overflow-hidden rounded-sm border border-border bg-card/40 transition-all duration-300 hover:border-foreground/40 hover:bg-card",
-        LAYOUT[index],
-        isWide && "md:flex-row",
-      )}
-    >
+    <div className="flex flex-1 flex-col items-start gap-3 p-6 md:p-7">
+      <CategoryLabel category={project.category} />
+      <h3 className="font-serif text-2xl leading-tight text-balance text-foreground md:text-3xl">
+        {project.title}
+      </h3>
+      <p className="max-w-md text-pretty text-sm font-light leading-relaxed text-muted-foreground">
+        {project.description}
+      </p>
+      <span className="mt-auto flex items-center gap-1.5 pt-1 text-sm font-light text-foreground/70 transition-colors group-hover:text-foreground">
+        View project
+        <ArrowUpRight
+          className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          aria-hidden="true"
+        />
+      </span>
+    </div>
+  )
+}
+
+const CARD_CLASS =
+  "group flex overflow-hidden rounded-sm border border-border bg-card/40 transition-all duration-300 hover:border-foreground/40 hover:bg-card"
+
+// First project: full-width, image left (60%) / text right (40%), capped height.
+function FeatureCard({ project }: { project: Project }) {
+  return (
+    <Link href={`/projects/${project.slug}`} className={cn(CARD_CLASS, "max-h-[420px] flex-col md:flex-row")}>
       <PreviewVisual
         label="preview"
-        variant={PREVIEW_VARIANTS[index]}
-        className={cn(
-          "w-full transition-opacity duration-300 group-hover:opacity-80",
-          isWide ? "aspect-[16/9] md:w-1/2" : "aspect-[4/5]",
-        )}
+        variant="lines"
+        className="aspect-[16/9] w-full transition-opacity duration-300 group-hover:opacity-80 md:aspect-auto md:w-3/5"
       />
-      <div className="flex flex-1 flex-col items-start gap-5 p-8 md:p-10">
-        <CategoryLabel category={project.category} />
-        <h3 className="font-serif text-3xl leading-tight text-balance text-foreground md:text-4xl">
-          {project.title}
-        </h3>
-        <p className="max-w-md text-pretty text-base font-light leading-relaxed text-muted-foreground">
-          {project.description}
-        </p>
-        <span className="mt-auto flex items-center gap-1.5 pt-2 text-sm font-light text-foreground/70 transition-colors group-hover:text-foreground">
-          View project
-          <ArrowUpRight
-            className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            aria-hidden="true"
-          />
-        </span>
+      <div className="md:w-2/5">
+        <CardBody project={project} />
       </div>
     </Link>
   )
 }
 
+// Remaining projects: equal-height cards in a 2-column grid, fixed 16:9 preview.
+function GridCard({ project }: { project: Project }) {
+  return (
+    <Link href={`/projects/${project.slug}`} className={cn(CARD_CLASS, "h-full flex-col")}>
+      <PreviewVisual
+        label="preview"
+        variant="lines"
+        className="aspect-[16/9] w-full transition-opacity duration-300 group-hover:opacity-80"
+      />
+      <CardBody project={project} />
+    </Link>
+  )
+}
+
 export function Projects() {
+  const [feature, ...rest] = PROJECTS
   return (
     <section id="projects" className="border-t border-border px-6 py-20 md:px-12 md:py-32">
       <div className="mx-auto w-full max-w-screen-2xl">
@@ -74,10 +85,13 @@ export function Projects() {
             Things I&apos;ve built, shipped, and figured out.
           </p>
         </div>
-        <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-12">
-          {PROJECTS.map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} />
-          ))}
+        <div className="mt-12 flex flex-col gap-6 md:mt-16">
+          {feature && <FeatureCard project={feature} />}
+          <div className="grid items-stretch gap-6 md:grid-cols-2">
+            {rest.map((project) => (
+              <GridCard key={project.slug} project={project} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -53,7 +53,7 @@ export default async function ProjectPage({
           </p>
         </header>
 
-        <div className="mt-12 grid gap-12 md:mt-16 md:grid-cols-12">
+        <div className="mt-12 grid items-start gap-12 md:mt-16 md:grid-cols-12">
           <aside className="md:col-span-3">
             <dl className="flex flex-col gap-6">
               {project.meta.map((item) => (
@@ -64,12 +64,7 @@ export default async function ProjectPage({
               ))}
             </dl>
           </aside>
-          <div className="flex flex-col gap-8 md:col-span-8 md:col-start-5">
-            <PreviewVisual
-              label="preview"
-              variant="lines"
-              className="aspect-[16/8] w-full rounded-sm border border-border"
-            />
+          <div className="flex flex-col gap-6 md:col-span-8 md:col-start-5">
             {project.body.map((paragraph, i) => (
               <p
                 key={i}
@@ -78,6 +73,11 @@ export default async function ProjectPage({
                 {paragraph}
               </p>
             ))}
+            <PreviewVisual
+              label="preview"
+              variant="lines"
+              className="mt-2 aspect-[16/9] w-full rounded-sm border border-border"
+            />
           </div>
         </div>
       </div>
