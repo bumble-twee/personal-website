@@ -1,5 +1,3 @@
-import { PreviewVisual } from "@/components/preview-visual"
-
 export function Hero() {
   return (
     <section
@@ -9,24 +7,26 @@ export function Hero() {
       <div className="mx-auto grid w-full max-w-screen-2xl items-end gap-12 md:grid-cols-12">
         <div className="md:col-span-6">
           <h1 className="font-serif font-black leading-[0.82] tracking-tight text-foreground text-balance text-[clamp(5rem,20vw,17rem)]">
-            build<span className="text-muted-foreground">.</span>
+            build
           </h1>
-          <p className="mt-8 max-w-md text-pretty text-base font-light leading-relaxed text-muted-foreground md:mt-10 md:text-lg">
-            Product leader. +16 years. Gaming, fintech, subscriptions.
+          <p className="mt-8 translate-x-[3%] -translate-y-[10%] whitespace-nowrap text-base font-light leading-relaxed text-muted-foreground md:mt-10 md:text-lg">
+            I build products people love to use. <br /> Product leader. +16 years. Gaming, fintech, subscriptions.
           </p>
         </div>
         <div className="md:col-span-6">
           {/* Asymmetric editorial photo pairing: a large portrait tile sits
               behind, with a smaller square candid overlapping its
               bottom-left corner. */}
-          <div className="relative mx-auto w-3/4 pb-14 pl-12 md:ml-auto md:mr-0">
-            <PreviewVisual
-              label="portrait"
-              className="aspect-[4/5] w-full border border-border"
+          <div className="relative mx-auto flex w-3/4 flex-col items-center gap-6 pb-0 pl-0 md:block md:pb-14 md:pl-12 md:ml-auto md:mr-0">
+            <img
+              src="/portrait.jpg"
+              alt="Alena De La Cruz"
+              className="aspect-[4/5] w-full border border-border object-cover object-[left_30%]"
             />
-            <PreviewVisual
-              label="candid"
-              className="absolute bottom-0 left-0 aspect-square w-2/5 border border-border"
+            <img
+              src="/candid.png"
+              alt="Alena De La Cruz"
+              className="relative aspect-[10/13] w-3/5 border border-border object-cover md:absolute md:bottom-0 md:right-95 md:w-1/2 md:translate-y-[-70%]"
             />
           </div>
         </div>
