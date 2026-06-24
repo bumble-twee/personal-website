@@ -5,17 +5,14 @@ export function SiteFooter() {
         <p className="font-serif text-5xl leading-none tracking-tight text-foreground md:text-7xl">
           alena<span className="text-muted-foreground">.</span>
         </p>
-        <div className="flex flex-col gap-2 text-sm font-light text-muted-foreground md:items-end">
-          <span>Alena Delacruz</span>
-          <a
-            href="https://www.linkedin.com/in/alenadelacruz/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground underline-offset-4 transition-colors hover:underline"
-          >
-            linkedin.com/in/alenadelacruz
-          </a>
-        </div>
+        <a
+          href="https://www.linkedin.com/in/alenadelacruz/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-light text-foreground underline-offset-4 transition-colors hover:underline md:self-end"
+        >
+          linkedin.com/in/alenadelacruz
+        </a>
       </div>
     </footer>
   )

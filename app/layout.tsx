@@ -1,6 +1,8 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
+import { SiteNav } from '@/components/site-nav'
+import { SiteFooter } from '@/components/site-footer'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -54,7 +56,9 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} bg-background`}
     >
       <body className="font-sans antialiased">
+        <SiteNav />
         {children}
+        <SiteFooter />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
