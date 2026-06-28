@@ -16,6 +16,9 @@ export type Project = {
   body: string[]
   meta: { label: string; value: string }[]
   images?: ProjectImage[]
+  liveUrl?: string
+  liveLabel?: string
+  liveCta?: string
 }
 
 export const PROJECTS: Project[] = [
@@ -58,6 +61,9 @@ export const PROJECTS: Project[] = [
       { label: "Context", value: "Staff PM take-home exercise" },
       { label: "Methods", value: "User research, prototype, roadmap"},
     ],
+    liveUrl: "https://benefits-case-study.vercel.app",
+    liveLabel: "Live tool",
+    liveCta: "Open Prototype ↗",
     images: [
       {
         src: "/benefits-platform/benefitsplatform.png",
@@ -74,15 +80,18 @@ export const PROJECTS: Project[] = [
     title: "Buy vs Rent Calculator",
     description: "An interactive model that weighs the true long-term cost of buying against renting.",
     body: [
-      "A financial decision tool that accounts for down payments, appreciation, opportunity cost, and maintenance to surface the real breakeven point between buying and renting over time.",
-      "Most calculators reduce the question to a monthly payment. This one models the full picture, including the return you forgo by tying up capital in a deposit, so the answer reflects the trade-off people actually face.",
-      "Built as a focused single-purpose tool: a handful of honest inputs, a clear breakeven chart, and no noise.",
+      "Most rent-vs-buy calculators answer the wrong question. They compare a mortgage payment to rent and call it a day, which makes buying look obvious. The real question is what your money does over time, and that's the one I wanted to model honestly.",
+      "This tool accounts for the things that actually move the answer: the opportunity cost of locking capital into a deposit, appreciation, maintenance, and the slow drag of transaction costs. It surfaces a real breakeven point rather than a feel-good monthly comparison.",
+      "I scoped it tight on purpose. A handful of honest inputs, one clear breakeven chart, and nothing else. The discipline was deciding what to leave out, because a calculator that asks for thirty variables is one nobody finishes.",
+      "It started as a tool for my own decision about buying in Chamonix. Building it forced me to get precise about the assumptions I was hand-waving past, which is the whole point of modeling a decision instead of just feeling it out.",
     ],
     meta: [
-      { label: "Role", value: "Design & Build" },
-      { label: "Type", value: "Interactive Tool" },
-      { label: "Year", value: "2025" },
+      { label: "Built with", value: "v0, Cursor, Next.js, Recharts" },
+      { label: "Scope", value: "Single-purpose decision tool" },
     ],
+    liveUrl: "https://wealth-app-rust.vercel.app/",
+    liveLabel: "Live tool",
+    liveCta: "Open Calculator ↗",
     images: [
       {
         src: "/buy-vs-rent/buyvsrent.png",

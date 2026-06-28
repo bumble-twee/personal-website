@@ -61,6 +61,24 @@ export default async function ProjectPage({
                   <dd className="text-base font-light text-foreground">{item.value}</dd>
                 </div>
               ))}
+
+              {project.liveUrl && (
+                <div className="flex flex-col gap-1">
+                  <dt className="small-caps text-xs text-muted-foreground">
+                    {project.liveLabel ?? "Live"}
+                  </dt>
+                  <dd>
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-base font-light text-foreground underline underline-offset-4 hover:opacity-60 transition-opacity"
+                    >
+                    {project.liveCta ?? "View ↗"}
+                    </a>
+                  </dd>
+                </div>
+              )}
             </dl>
           </aside>
           
