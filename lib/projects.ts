@@ -25,9 +25,10 @@ export const PROJECTS: Project[] = [
     title: "Daily Jobs Digest",
     description: "An automated digest that surfaces the most relevant roles each morning.",
     body: [
-      "A lightweight automation that aggregates, filters, and ranks job postings against a personal profile, delivering a focused daily shortlist instead of endless scrolling.",
-      "The premise is simple: the right few roles, once a day, ranked by fit. No dashboards, no notifications, no infinite feed.",
-      "Under the hood it pulls from multiple sources, dedupes, scores against a stored profile, and emails a clean digest every morning.",
+      "Job hunting at a senior level means tracking around a hundred companies across four different applicant tracking systems, plus a handful of job boards. Doing that by hand is either a part-time job or something you quit after a week. I wanted the opposite. Nothing to check, no dashboard to open, no feed to scroll. Just the relevant roles, once a day, in my inbox.",
+      "Every weekday at 7am, a Python script runs on GitHub Actions. It hits the APIs behind Greenhouse, Lever, and Ashby for my target companies, then pulls from Remotive, Wellfound, and LinkedIn. It filters by title, from senior IC through director, screens hard for France and EMEA remote eligibility, dedupes against everything it has already seen, and emails a clean digest. If there's nothing new it still sends, so silence always means something broke, not that the market went quiet.",
+      "The build was less about the code than the judgment calls. Which ATS does each company actually use? Most of my first guesses were wrong. What counts as remote from France? Harder than it sounds. 'Remote, London' and 'Hybrid, Barcelona' both have to fail. How do you tell a genuinely new posting from one you saw yesterday? Each of those was a small product decision, and I tuned every one against real output instead of in the abstract.",
+      "This is how I work. Define a sharp problem, scope it to what matters, build the smallest thing that solves it, then iterate against reality. I used Claude, Cursor, and v0 to move quickly, but the speed wasn't the point. The point was testing an idea the same day I had it.",
     ],
     meta: [
       { label: "Built with", value: "Python, GitHub Actions, Gmail SMTP, Greenhouse/Lever/Ashby APIs" },
@@ -37,7 +38,7 @@ export const PROJECTS: Project[] = [
       {
         src: "/daily-jobs-digest/dailydigest.png",
         alt: "Daily Jobs Digest email screenshot",
-        scale: 0.9,
+        scale: 1,
         paddingTop: 0,
         transformOrigin: "top center",
       },
