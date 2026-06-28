@@ -64,7 +64,7 @@ const PROJECT_IMAGE_STYLES: Record<string, {
   transformOrigin: string
 }> = {
   "daily-jobs-digest": {
-    scale: .9,
+    scale: 1,
     paddingTop: 0,
     transformOrigin: "top center",
   },
