@@ -99,14 +99,14 @@ export const PROJECTS: Project[] = [
     title: "Portfolio Website Build",
     description: "This site, an editorial, typographically-led portfolio built with v0.",
     body: [
-      "A study in restraint: heavy serif display type, an off-white textured canvas, and generous whitespace, designed and shipped using AI-assisted development tools.",
-      "The goal was to make the typography do the work. One bold serif statement, sparse navigation, and room for the content to breathe.",
-      "Built with Next.js and Tailwind, deployed on Vercel, and intentionally kept small.",
+      "I wanted a portfolio that didn't look like a template, so I treated the build itself as a product exercise: a clear point of view, a tight scope, and a fast path from reference to shipped.",
+      "The design direction was editorial restraint. One heavy serif statement, an off-white canvas, generous whitespace. I worked from a photography portfolio reference, broke it into the decisions that actually mattered (type hierarchy, image rhythm, where to spend attention), and discarded everything that didn't serve the read.",
+      "The build ran on AI-native tools end to end. Design generated in v0, refined in code, deployed continuously through Vercel. The interesting work was the same as in any product: deciding what to cut, knowing when a layout was good enough to ship, and keeping the whole thing coherent as it grew.",
+      "It's a small site by design. The goal was to demonstrate how I move from ambiguity to a shipped artifact, fast, opinionated, and using the tools that are reshaping how products get built.",
     ],
     meta: [
-      { label: "Role", value: "Design & Build" },
-      { label: "Type", value: "Website" },
-      { label: "Year", value: "2026" },
+      { label: "Built with", value: "v0, Cursor, Next.js, Tailwind, Vercel" },
+      { label: "Approach", value: "AI-native design and development" },
     ],
     images: [
       {
