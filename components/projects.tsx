@@ -4,10 +4,10 @@ import { PROJECTS, type Project, type ProjectCategory } from "@/lib/projects"
 import { cn } from "@/lib/utils"
 
 const PROJECT_PREVIEW_IMAGES: Record<string, string> = {
-  "buy-vs-rent": "/buyvsrent.png",
-  "benefits-platform": "/benefitscasestudy.png",
+  "buy-vs-rent": "/buy-vs-rent/buyvsrent.png",
+  "benefits-platform": "/benefits-platform/benefitsplatform.png",
   "daily-jobs-digest": "/daily-jobs-digest/dailydigest.png",
-  "portfolio-website": "/website.png",
+  "portfolio-website": "/website-project/website.png",
 }
 
 // Subtle visual differentiation per category label.

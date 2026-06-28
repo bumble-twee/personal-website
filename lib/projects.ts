@@ -57,6 +57,15 @@ export const PROJECTS: Project[] = [
       { label: "Context", value: "Staff PM take-home exercise" },
       { label: "Methods", value: "User research, prototype, roadmap"},
     ],
+    images: [
+      {
+        src: "/benefits-platform/benefitsplatform.png",
+        alt: "Daily Jobs Digest email screenshot",
+        scale: 0.9,
+        paddingTop: 0,
+        transformOrigin: "top center",
+      },
+    ],
   },
   {
     slug: "buy-vs-rent",
@@ -73,6 +82,15 @@ export const PROJECTS: Project[] = [
       { label: "Type", value: "Interactive Tool" },
       { label: "Year", value: "2025" },
     ],
+    images: [
+      {
+        src: "/buy-vs-rent/buyvsrent.png",
+        alt: "Daily Jobs Digest email screenshot",
+        scale: 0.9,
+        paddingTop: 0,
+        transformOrigin: "top center",
+      },
+    ],
   },
   {
     slug: "portfolio-website",
@@ -88,6 +106,15 @@ export const PROJECTS: Project[] = [
       { label: "Role", value: "Design & Build" },
       { label: "Type", value: "Website" },
       { label: "Year", value: "2026" },
+    ],
+    images: [
+      {
+        src: "/website-project/website.png",
+        alt: "Daily Jobs Digest email screenshot",
+        scale: 0.9,
+        paddingTop: 0,
+        transformOrigin: "top center",
+      },
     ],
   },
 ]
