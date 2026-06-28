@@ -13,18 +13,18 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    slug: "buy-vs-rent",
+    slug: "daily-jobs-digest",
     category: "Tool",
-    title: "Buy vs Rent Calculator",
-    description: "An interactive model that weighs the true long-term cost of buying against renting.",
+    title: "Daily Jobs Digest",
+    description: "An automated digest that surfaces the most relevant roles each morning.",
     body: [
-      "A financial decision tool that accounts for down payments, appreciation, opportunity cost, and maintenance to surface the real breakeven point between buying and renting over time.",
-      "Most calculators reduce the question to a monthly payment. This one models the full picture, including the return you forgo by tying up capital in a deposit, so the answer reflects the trade-off people actually face.",
-      "Built as a focused single-purpose tool: a handful of honest inputs, a clear breakeven chart, and no noise.",
+      "A lightweight automation that aggregates, filters, and ranks job postings against a personal profile, delivering a focused daily shortlist instead of endless scrolling.",
+      "The premise is simple: the right few roles, once a day, ranked by fit. No dashboards, no notifications, no infinite feed.",
+      "Under the hood it pulls from multiple sources, dedupes, scores against a stored profile, and emails a clean digest every morning.",
     ],
     meta: [
       { label: "Role", value: "Design & Build" },
-      { label: "Type", value: "Interactive Tool" },
+      { label: "Type", value: "Automation" },
       { label: "Year", value: "2025" },
     ],
   },
@@ -45,18 +45,18 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    slug: "daily-jobs-digest",
+    slug: "buy-vs-rent",
     category: "Tool",
-    title: "Daily Jobs Digest",
-    description: "An automated digest that surfaces the most relevant roles each morning.",
+    title: "Buy vs Rent Calculator",
+    description: "An interactive model that weighs the true long-term cost of buying against renting.",
     body: [
-      "A lightweight automation that aggregates, filters, and ranks job postings against a personal profile, delivering a focused daily shortlist instead of endless scrolling.",
-      "The premise is simple: the right few roles, once a day, ranked by fit. No dashboards, no notifications, no infinite feed.",
-      "Under the hood it pulls from multiple sources, dedupes, scores against a stored profile, and emails a clean digest every morning.",
+      "A financial decision tool that accounts for down payments, appreciation, opportunity cost, and maintenance to surface the real breakeven point between buying and renting over time.",
+      "Most calculators reduce the question to a monthly payment. This one models the full picture, including the return you forgo by tying up capital in a deposit, so the answer reflects the trade-off people actually face.",
+      "Built as a focused single-purpose tool: a handful of honest inputs, a clear breakeven chart, and no noise.",
     ],
     meta: [
       { label: "Role", value: "Design & Build" },
-      { label: "Type", value: "Automation" },
+      { label: "Type", value: "Interactive Tool" },
       { label: "Year", value: "2025" },
     ],
   },

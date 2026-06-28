@@ -1,8 +1,14 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { PROJECTS, type Project, type ProjectCategory } from "@/lib/projects"
-import { PreviewVisual } from "@/components/preview-visual"
 import { cn } from "@/lib/utils"
+
+const PROJECT_PREVIEW_IMAGES: Record<string, string> = {
+  "buy-vs-rent": "/buyvsrent.png",
+  "benefits-platform": "/benefitscasestudy.png",
+  "daily-jobs-digest": "/dailydigest.png",
+  "portfolio-website": "/website.png",
+}
 
 // Subtle visual differentiation per category label.
 const CATEGORY_STYLES: Record<ProjectCategory, string> = {
@@ -44,38 +50,88 @@ function CardBody({ project }: { project: Project }) {
 const CARD_CLASS =
   "group flex overflow-hidden rounded-sm border border-border bg-card/40 transition-all duration-300 hover:border-foreground/40 hover:bg-card"
 
-// First project: full-width, image left (60%) / text right (40%), capped height.
-function FeatureCard({ project }: { project: Project }) {
-  return (
-    <Link href={`/projects/${project.slug}`} className={cn(CARD_CLASS, "max-h-[420px] flex-col md:flex-row")}>
-      <PreviewVisual
-        label="preview"
-        variant="lines"
-        className="aspect-[16/9] w-full transition-opacity duration-300 group-hover:opacity-80 md:aspect-auto md:w-3/5"
-      />
-      <div className="md:w-2/5">
-        <CardBody project={project} />
-      </div>
-    </Link>
-  )
+const ROW_LAYOUTS = [
+  "grid-cols-[35fr_65fr]",
+  "grid-cols-2",
+  "grid-cols-[65fr_35fr]",
+] as const
+
+/* Claude generated code to change scale of project preview images */
+
+const PROJECT_IMAGE_STYLES: Record<string, {
+  scale: number
+  paddingTop: number
+  transformOrigin: string
+}> = {
+  "daily-jobs-digest": {
+    scale: .9,
+    paddingTop: 0,
+    transformOrigin: "top center",
+  },
+  "benefits-platform": {
+    scale: 1.2,
+    paddingTop: 0,
+    transformOrigin: "top left",
+  },
+  "buy-vs-rent": {
+    scale: 1,
+    paddingTop: 0,
+    transformOrigin: "top left",
+  },
+  "portfolio-website": {
+    scale: .8,
+    paddingTop: 10,
+    transformOrigin: "top center",
+  },
 }
 
-// Remaining projects: equal-height cards in a 2-column grid, fixed 16:9 preview.
-function GridCard({ project }: { project: Project }) {
+function ProjectCard({ project }: { project: Project }) {
+  const imgStyle = PROJECT_IMAGE_STYLES[project.slug] ?? {
+    scale: 0.5,
+    paddingTop: 0,
+    transformOrigin: "top left",
+  }
+
   return (
-    <Link href={`/projects/${project.slug}`} className={cn(CARD_CLASS, "h-full flex-col")}>
-      <PreviewVisual
-        label="preview"
-        variant="lines"
-        className="aspect-[16/9] w-full transition-opacity duration-300 group-hover:opacity-80"
+    <Link href={`/projects/${project.slug}`} className={cn(CARD_CLASS, "h-[420px] flex-col")}>
+      <div
+        className="h-[220px] shrink-0 overflow-hidden relative"
+        style={{ 
+          paddingTop: `${imgStyle.paddingTop}px`,
+          minHeight: "220px"
+        }}
+      >
+       <img
+        src={PROJECT_PREVIEW_IMAGES[project.slug]}
+        alt=""
+        style={{
+          transform: `scale(${imgStyle.scale})`,
+          transformOrigin: imgStyle.transformOrigin,
+          width: "100%",
+          height: "auto",
+          display: "block",
+        }}
+        className="transition-opacity duration-300 group-hover:opacity-80"
       />
+      </div>
       <CardBody project={project} />
     </Link>
   )
 }
 
+/* End of Claude generated code */
+
+function chunkIntoRows<T>(items: T[]): T[][] {
+  const rows: T[][] = []
+  for (let i = 0; i < items.length; i += 2) {
+    rows.push(items.slice(i, i + 2))
+  }
+  return rows
+}
+
 export function Projects() {
-  const [feature, ...rest] = PROJECTS
+  const rows = chunkIntoRows(PROJECTS)
+
   return (
     <section id="projects" className="border-t border-border px-6 py-20 md:px-12 md:py-32">
       <div className="mx-auto w-full max-w-screen-2xl">
@@ -86,12 +142,13 @@ export function Projects() {
           </p>
         </div>
         <div className="mt-12 flex flex-col gap-6 md:mt-16">
-          {feature && <FeatureCard project={feature} />}
-          <div className="grid items-stretch gap-6 md:grid-cols-2">
-            {rest.map((project) => (
-              <GridCard key={project.slug} project={project} />
-            ))}
-          </div>
+          {rows.map((row, rowIndex) => (
+            <div key={rowIndex} className={cn("grid gap-6", ROW_LAYOUTS[rowIndex % ROW_LAYOUTS.length])}>
+              {row.map((project) => (
+                <ProjectCard key={project.slug} project={project} />
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>

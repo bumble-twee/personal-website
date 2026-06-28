@@ -19,7 +19,7 @@ export function SiteNav() {
           href="/"
           className="font-serif text-2xl font-bold tracking-tight text-foreground md:text-3xl"
         >
-          alena
+          alena delacruz
         </Link>
         <ul className="flex items-center gap-5 text-sm md:gap-9">
           {NAV_LINKS.map((link) =>
