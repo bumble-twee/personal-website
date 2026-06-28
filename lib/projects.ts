@@ -68,7 +68,7 @@ export const PROJECTS: Project[] = [
       {
         src: "/benefits-platform/benefitsplatform.png",
         alt: "Daily Jobs Digest email screenshot",
-        scale: 0.9,
+        scale: 1,
         paddingTop: 0,
         transformOrigin: "top center",
       },
