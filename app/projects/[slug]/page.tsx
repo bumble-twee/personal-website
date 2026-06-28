@@ -3,7 +3,6 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { PROJECTS, getProject } from "@/lib/projects"
-import { PreviewVisual } from "@/components/preview-visual"
 
 export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }))
@@ -73,11 +72,39 @@ export default async function ProjectPage({
                 {paragraph}
               </p>
             ))}
-            <PreviewVisual
-              label="preview"
-              variant="lines"
-              className="mt-2 aspect-[16/9] w-full rounded-sm border border-border"
-            />
+            <div className="flex flex-col gap-6 md:col-span-8 md:col-start-5">
+              {project.body.map((paragraph, i) => (
+                <p
+                  key={i}
+                  className="text-pretty text-lg font-light leading-relaxed text-foreground/80 md:text-xl"
+                >
+                  {paragraph}
+                </p>
+              ))}
+              {project.images && project.images.length > 0 && (
+                <div className="flex flex-col gap-6 mt-2">
+                  {project.images.map((img, i) => (
+                    <div
+                      key={i}
+                      className="overflow-hidden rounded-sm border border-border"
+                      style={{ paddingTop: `${img.paddingTop ?? 0}px` }}
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        style={{
+                          transform: `scale(${img.scale ?? 1})`,
+                          transformOrigin: img.transformOrigin ?? "top center",
+                          width: "100%",
+                          height: "auto",
+                          display: "block",
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

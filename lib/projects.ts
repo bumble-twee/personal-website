@@ -1,3 +1,11 @@
+export type ProjectImage = {
+  src: string
+  alt: string
+  scale?: number
+  paddingTop?: number
+  transformOrigin?: string
+}
+
 export type ProjectCategory = "Project" | "Case Study" | "Tool"
 
 export type Project = {
@@ -5,10 +13,9 @@ export type Project = {
   category: ProjectCategory
   title: string
   description: string
-  // Longer narrative shown on the dedicated project page.
   body: string[]
-  // Quick facts shown in the sidebar of the detail page.
   meta: { label: string; value: string }[]
+  images?: ProjectImage[]
 }
 
 export const PROJECTS: Project[] = [
@@ -23,9 +30,17 @@ export const PROJECTS: Project[] = [
       "Under the hood it pulls from multiple sources, dedupes, scores against a stored profile, and emails a clean digest every morning.",
     ],
     meta: [
-      { label: "Role", value: "Design & Build" },
-      { label: "Type", value: "Automation" },
-      { label: "Year", value: "2025" },
+      { label: "Built with", value: "Python, GitHub Actions, Gmail SMTP, Greenhouse/Lever/Ashby APIs" },
+      { label: "Scope", value: "Personal tool, fully automated" },
+    ],
+    images: [
+      {
+        src: "/daily-jobs-digest/dailydigest.png",
+        alt: "Daily Jobs Digest email screenshot",
+        scale: 0.9,
+        paddingTop: 0,
+        transformOrigin: "top center",
+      },
     ],
   },
   {
@@ -39,9 +54,8 @@ export const PROJECTS: Project[] = [
       "The outcome was a dashboard that gave administrators a single view of enrollment and usage, while keeping the employee experience calm and legible.",
     ],
     meta: [
-      { label: "Role", value: "Product Lead" },
-      { label: "Type", value: "B2B2C Platform" },
-      { label: "Year", value: "2024" },
+      { label: "Context", value: "Staff PM take-home exercise" },
+      { label: "Methods", value: "User research, prototype, roadmap"},
     ],
   },
   {

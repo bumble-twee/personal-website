@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 const PROJECT_PREVIEW_IMAGES: Record<string, string> = {
   "buy-vs-rent": "/buyvsrent.png",
   "benefits-platform": "/benefitscasestudy.png",
-  "daily-jobs-digest": "/dailydigest.png",
+  "daily-jobs-digest": "/daily-jobs-digest/dailydigest.png",
   "portfolio-website": "/website.png",
 }
 
