@@ -39,7 +39,7 @@ function CardBody({ project }: { project: Project }) {
       <span className="mt-auto flex items-center gap-1.5 pt-1 text-sm font-light text-foreground/70 transition-colors group-hover:text-foreground">
         View project
         <ArrowUpRight
-          className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          className="size-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
           aria-hidden="true"
         />
       </span>
@@ -48,7 +48,7 @@ function CardBody({ project }: { project: Project }) {
 }
 
 const CARD_CLASS =
-  "group flex overflow-hidden rounded-sm border border-border bg-card/40 transition-all duration-300 hover:border-foreground/40 hover:bg-card"
+  "group flex overflow-hidden rounded-sm border border-border bg-card/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
 
 const ROW_LAYOUTS = [
   "grid-cols-[35fr_65fr]",
@@ -95,7 +95,7 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <Link href={`/projects/${project.slug}`} className={cn(CARD_CLASS, "h-[420px] flex-col")}>
       <div
-        className="h-[220px] shrink-0 overflow-hidden relative"
+        className="h-[220px] shrink-0 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.03]"
         style={{ 
           paddingTop: `${imgStyle.paddingTop}px`,
           minHeight: "220px"
@@ -111,7 +111,6 @@ function ProjectCard({ project }: { project: Project }) {
           height: "auto",
           display: "block",
         }}
-        className="transition-opacity duration-300 group-hover:opacity-80"
       />
       </div>
       <CardBody project={project} />
@@ -137,7 +136,7 @@ export function Projects() {
       <div className="mx-auto w-full max-w-screen-2xl">
         <div className="grid gap-10 md:grid-cols-12">
           <h2 className="small-caps text-sm text-muted-foreground md:col-span-3">Projects</h2>
-          <p className="font-serif text-2xl leading-snug text-pretty text-foreground md:col-span-9 md:text-3xl lg:col-span-7">
+          <p className="font-serif text-2xl leading-snug text-pretty text-foreground md:col-span-9 md:text-3xl lg:col-span-7 lg:text-4xl">
             Things I&apos;ve built, shipped, and figured out.
           </p>
         </div>

@@ -14,11 +14,7 @@ export function About() {
             back.
           </p>
           <p className="mt-8 max-w-2xl text-pretty text-base font-light leading-relaxed text-muted-foreground md:text-lg">
-            Over 16 years I&apos;ve spanned game design at King and Wooga,
-            payments at Glovo and Verse, and growth leadership at Spotify, where
-            I led conversion, activation, and retention across a 200M+
-            subscriber base. I care about data-driven experimentation, clean
-            product craft, and building things that feel effortless to use.
+          At Spotify I led conversion, activation, and retention across a 200M+ subscriber base. Previously, I built the customer and payments experience for Glovo's marketplace, ran payments at Verse, and designed game economies at King and Wooga.
           </p>
         </div>
       </div>
