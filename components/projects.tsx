@@ -51,9 +51,9 @@ const CARD_CLASS =
   "group flex overflow-hidden rounded-sm border border-border bg-card/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
 
 const ROW_LAYOUTS = [
-  "grid-cols-[35fr_65fr]",
-  "grid-cols-2",
-  "grid-cols-[65fr_35fr]",
+  "md:grid-cols-[35fr_65fr]",
+  "md:grid-cols-2",
+  "md:grid-cols-[65fr_35fr]",
 ] as const
 
 /* Claude generated code to change scale of project preview images */
@@ -142,7 +142,7 @@ export function Projects() {
         </div>
         <div className="mt-12 flex flex-col gap-6 md:mt-16">
           {rows.map((row, rowIndex) => (
-            <div key={rowIndex} className={cn("grid gap-6", ROW_LAYOUTS[rowIndex % ROW_LAYOUTS.length])}>
+            <div key={rowIndex} className={cn("grid grid-cols-1 gap-6", ROW_LAYOUTS[rowIndex % ROW_LAYOUTS.length])}>
               {row.map((project) => (
                 <ProjectCard key={project.slug} project={project} />
               ))}
