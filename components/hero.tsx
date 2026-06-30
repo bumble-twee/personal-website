@@ -8,7 +8,7 @@ export function Hero() {
     >
       <div className="mx-auto grid w-full max-w-screen-2xl items-end gap-10 sm:gap-12 md:grid-cols-12">
         <div className="md:col-span-6">
-          <h1 className="font-serif font-black leading-[0.82] tracking-tight text-foreground text-balance text-[clamp(5rem,20vw,17rem)]">
+          <h1 className="font-serif font-black leading-[0.82] tracking-tight text-foreground text-balance text-[clamp(3.5rem,20vw,17rem)]">
             build.
           </h1>
           <p className="mt-6 translate-x-[3%] -translate-y-[10%] whitespace-normal text-base font-light leading-relaxed text-muted-foreground sm:mt-8 md:mt-10 md:whitespace-nowrap md:text-lg">
