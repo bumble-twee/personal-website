@@ -19,12 +19,12 @@ export function Hero() {
           {/* Asymmetric editorial photo pairing: a large portrait tile sits
               behind, with a smaller square candid overlapping its
               bottom-left corner. */}
-          <div className="relative mx-auto flex w-3/4 flex-col items-center gap-6 pb-0 pl-0 sm:w-3/5 md:block md:w-3/4 md:pb-14 md:pl-12 md:ml-auto md:mr-0">
+          <div className="relative mx-auto w-3/4 pb-16 sm:w-3/5 sm:pb-20 md:block md:w-3/4 md:pb-14 md:pl-12 md:ml-auto md:mr-0">
             <PortraitParallax src="/portrait.jpg" alt="Alena De La Cruz" />
             <img
               src="/candid.png"
               alt="Alena De La Cruz"
-              className="relative aspect-[10/13] w-3/5 border border-border object-cover md:absolute md:bottom-0 md:right-95 md:w-1/2 md:translate-y-[-70%]"
+              className="absolute bottom-0 left-0 aspect-[10/13] w-2/5 -translate-y-[8%] border border-border object-cover md:bottom-0 md:left-auto md:right-95 md:w-1/2 md:translate-y-[-70%]"
             />
           </div>
         </div>
