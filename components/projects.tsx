@@ -19,7 +19,7 @@ const CATEGORY_STYLES: Record<ProjectCategory, string> = {
 
 function CategoryLabel({ category }: { category: ProjectCategory }) {
   return (
-    <span className={cn("small-caps flex items-center gap-2 text-xs", CATEGORY_STYLES[category])}>
+    <span className={cn("small-caps flex items-center gap-2 text-xs sm:text-sm md:text-xs", CATEGORY_STYLES[category])}>
       <span className="h-px w-5 bg-current" aria-hidden="true" />
       {category}
     </span>
