@@ -98,7 +98,7 @@ function ProjectCard({ project }: { project: Project }) {
   const mobileTransformOrigin = imgStyle.mobileTransformOrigin ?? imgStyle.transformOrigin
 
   return (
-    <Link href={`/projects/${project.slug}`} className={cn(CARD_CLASS, "h-[380px] flex-col sm:h-[420px]")}>
+    <Link href={`/projects/${project.slug}`} className={cn(CARD_CLASS, "h-[416px] flex-col sm:h-[420px]")}>
       <div
         className="box-border h-[190px] shrink-0 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.03] sm:h-[220px]"
         style={{
