@@ -11,7 +11,7 @@ export function Hero() {
           <h1 className="font-serif font-black leading-[0.82] tracking-tight text-foreground text-balance text-[clamp(5rem,20vw,17rem)]">
             build.
           </h1>
-          <p className="mt-8 translate-x-[3%] -translate-y-[10%] whitespace-nowrap text-base font-light leading-relaxed text-muted-foreground md:mt-10 md:text-lg">
+          <p className="mt-8 translate-x-[3%] -translate-y-[10%] whitespace-normal text-base font-light leading-relaxed text-muted-foreground md:mt-10 md:whitespace-nowrap md:text-lg">
             I build products people love to use. <br /> Product leader. +16 years. Gaming, fintech, subscriptions.
           </p>
         </div>
