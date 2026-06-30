@@ -142,7 +142,7 @@ export function Projects() {
         </div>
         <div className="mt-10 flex flex-col gap-6 sm:mt-12 md:mt-16">
           {rows.map((row, rowIndex) => (
-            <div key={rowIndex} className={cn("grid grid-cols-1 gap-6", ROW_LAYOUTS[rowIndex % ROW_LAYOUTS.length])}>
+            <div key={rowIndex} className={cn("grid grid-cols-1 gap-4 sm:gap-6", ROW_LAYOUTS[rowIndex % ROW_LAYOUTS.length])}>
               {row.map((project) => (
                 <ProjectCard key={project.slug} project={project} />
               ))}
