@@ -15,7 +15,9 @@ export function PortraitParallax({ src, alt }: PortraitParallaxProps) {
     const img = imgRef.current
     if (!hero || !img) return
 
+    const mql = window.matchMedia("(min-width: 768px)")
     let rafId = 0
+    let scrollListenerAttached = false
 
     const update = () => {
       rafId = 0
@@ -32,11 +34,32 @@ export function PortraitParallax({ src, alt }: PortraitParallaxProps) {
       }
     }
 
-    update()
-    window.addEventListener("scroll", onScroll, { passive: true })
+    const syncToViewport = () => {
+      if (mql.matches) {
+        if (!scrollListenerAttached) {
+          window.addEventListener("scroll", onScroll, { passive: true })
+          scrollListenerAttached = true
+        }
+        update()
+      } else {
+        if (scrollListenerAttached) {
+          window.removeEventListener("scroll", onScroll)
+          scrollListenerAttached = false
+        }
+        if (rafId) {
+          window.cancelAnimationFrame(rafId)
+          rafId = 0
+        }
+        img.style.transform = ""
+      }
+    }
+
+    syncToViewport()
+    mql.addEventListener("change", syncToViewport)
 
     return () => {
-      window.removeEventListener("scroll", onScroll)
+      mql.removeEventListener("change", syncToViewport)
+      if (scrollListenerAttached) window.removeEventListener("scroll", onScroll)
       if (rafId) window.cancelAnimationFrame(rafId)
     }
   }, [])
@@ -47,7 +70,7 @@ export function PortraitParallax({ src, alt }: PortraitParallaxProps) {
         ref={imgRef}
         src={src}
         alt={alt}
-        className="h-[120%] w-full object-cover object-[left_30%]"
+        className="h-full w-full object-cover object-[center_20%] md:h-[120%] md:object-[left_30%]"
       />
     </div>
   )
