@@ -42,17 +42,17 @@ export default async function ProjectPage({
           Back
         </Link>
 
-        <header className="mt-12 border-b border-border pb-12 md:mt-16 md:pb-16">
+        <header className="mt-10 border-b border-border pb-10 sm:mt-12 sm:pb-12 md:mt-16 md:pb-16">
           <span className="small-caps text-xs text-muted-foreground">{project.category}</span>
-          <h1 className="mt-5 font-serif text-5xl font-bold leading-[0.95] tracking-tight text-balance text-foreground md:text-7xl">
+          <h1 className="mt-5 font-serif text-4xl font-bold leading-[0.95] tracking-tight text-balance text-foreground sm:text-5xl md:text-7xl">
             {project.title}
           </h1>
-          <p className="mt-6 max-w-xl text-pretty text-lg font-light leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-xl text-pretty text-base font-light leading-relaxed text-muted-foreground sm:text-lg">
             {project.description}
           </p>
         </header>
 
-        <div className="mt-12 grid items-start gap-8 md:mt-16 md:gap-12 md:grid-cols-12">
+        <div className="mt-10 grid items-start gap-8 sm:mt-12 md:mt-16 md:gap-12 md:grid-cols-12">
           <aside className="md:col-span-3">
             <dl className="flex flex-col gap-6">
               {project.meta.map((item) => (

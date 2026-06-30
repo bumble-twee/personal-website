@@ -28,7 +28,7 @@ function CategoryLabel({ category }: { category: ProjectCategory }) {
 
 function CardBody({ project }: { project: Project }) {
   return (
-    <div className="flex flex-1 flex-col items-start gap-3 p-6 md:p-7">
+    <div className="flex flex-1 flex-col items-start gap-3 p-5 sm:p-6 md:p-7">
       <CategoryLabel category={project.category} />
       <h3 className="font-serif text-2xl leading-tight text-balance text-foreground md:text-3xl">
         {project.title}
@@ -93,12 +93,12 @@ function ProjectCard({ project }: { project: Project }) {
   }
 
   return (
-    <Link href={`/projects/${project.slug}`} className={cn(CARD_CLASS, "h-[420px] flex-col")}>
+    <Link href={`/projects/${project.slug}`} className={cn(CARD_CLASS, "h-[380px] flex-col sm:h-[420px]")}>
       <div
-        className="h-[220px] shrink-0 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.03]"
-        style={{ 
+        className="h-[190px] shrink-0 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.03] sm:h-[220px]"
+        style={{
           paddingTop: `${imgStyle.paddingTop}px`,
-          minHeight: "220px"
+          minHeight: "190px"
         }}
       >
        <img
@@ -132,15 +132,15 @@ export function Projects() {
   const rows = chunkIntoRows(PROJECTS)
 
   return (
-    <section id="projects" className="border-t border-border px-6 py-20 md:px-12 md:py-32">
+    <section id="projects" className="border-t border-border px-6 py-16 sm:py-20 md:px-12 md:py-32">
       <div className="mx-auto w-full max-w-screen-2xl">
-        <div className="grid gap-10 md:grid-cols-12">
+        <div className="grid gap-8 sm:gap-10 md:grid-cols-12">
           <h2 className="small-caps text-sm text-muted-foreground md:col-span-3">Projects</h2>
-          <p className="font-serif text-2xl leading-snug text-pretty text-foreground md:col-span-9 md:text-3xl lg:col-span-7 lg:text-4xl">
+          <p className="font-serif text-xl leading-snug text-pretty text-foreground sm:text-2xl md:col-span-9 md:text-3xl lg:col-span-7 lg:text-4xl">
             Things I&apos;ve built, shipped, and figured out.
           </p>
         </div>
-        <div className="mt-12 flex flex-col gap-6 md:mt-16">
+        <div className="mt-10 flex flex-col gap-6 sm:mt-12 md:mt-16">
           {rows.map((row, rowIndex) => (
             <div key={rowIndex} className={cn("grid grid-cols-1 gap-6", ROW_LAYOUTS[rowIndex % ROW_LAYOUTS.length])}>
               {row.map((project) => (
