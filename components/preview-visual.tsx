@@ -38,7 +38,7 @@ export function PreviewVisual({ label = "preview", variant = "lines", className 
           </>
         )}
       </svg>
-      <span className="small-caps absolute bottom-4 left-4 text-[0.7rem] text-muted-foreground/70">{label}</span>
+      <span className="small-caps absolute bottom-2 left-2 text-[0.6rem] text-muted-foreground/70 sm:bottom-4 sm:left-4 sm:text-[0.7rem]">{label}</span>
     </div>
   )
 }
