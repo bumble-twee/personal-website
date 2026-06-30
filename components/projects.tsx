@@ -33,7 +33,7 @@ function CardBody({ project }: { project: Project }) {
       <h3 className="font-serif text-2xl leading-tight text-balance text-foreground md:text-3xl">
         {project.title}
       </h3>
-      <p className="max-w-md text-pretty text-sm font-light leading-relaxed text-muted-foreground">
+      <p className="line-clamp-2 min-h-[2.85rem] max-w-md text-pretty text-sm font-light leading-relaxed text-muted-foreground">
         {project.description}
       </p>
       <span className="mt-auto flex items-center gap-1.5 pt-1 text-sm font-light text-foreground/70 transition-colors group-hover:text-foreground">
@@ -100,7 +100,7 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <Link href={`/projects/${project.slug}`} className={cn(CARD_CLASS, "h-[380px] flex-col sm:h-[420px]")}>
       <div
-        className="h-[190px] shrink-0 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.03] sm:h-[220px]"
+        className="box-border h-[190px] shrink-0 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.03] sm:h-[220px]"
         style={{
           paddingTop: `${imgStyle.paddingTop}px`,
           minHeight: "190px"
