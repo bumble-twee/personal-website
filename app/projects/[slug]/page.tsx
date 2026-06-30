@@ -54,7 +54,7 @@ export default async function ProjectPage({
 
         <div className="mt-10 grid items-start gap-8 sm:mt-12 md:mt-16 md:gap-12 md:grid-cols-12">
           <aside className="md:col-span-3">
-            <dl className="flex flex-col gap-6">
+            <dl className="flex flex-col gap-4 sm:gap-6">
               {project.meta.map((item) => (
                 <div key={item.label} className="flex flex-col gap-1">
                   <dt className="small-caps text-xs text-muted-foreground">{item.label}</dt>
@@ -93,25 +93,32 @@ export default async function ProjectPage({
             ))}
             {project.images && project.images.length > 0 && (
               <div className="flex flex-col gap-6 mt-2">
-                {project.images.map((img, i) => (
-                  <div
-                    key={i}
-                    className="overflow-hidden rounded-sm border border-border"
-                    style={{ paddingTop: `${img.paddingTop ?? 0}px` }}
-                  >
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      style={{
-                        transform: `scale(${img.scale ?? 1})`,
-                        transformOrigin: img.transformOrigin ?? "top center",
-                        width: "100%",
-                        height: "auto",
-                        display: "block",
-                      }}
-                    />
-                  </div>
-                ))}
+                {project.images.map((img, i) => {
+                  const scale = img.scale ?? 1
+                  const transformOrigin = img.transformOrigin ?? "top center"
+                  const mobileScale = scale > 1 ? 1 : scale
+                  return (
+                    <div
+                      key={i}
+                      className="overflow-hidden rounded-sm border border-border"
+                      style={{ paddingTop: `${img.paddingTop ?? 0}px` }}
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="[transform:scale(var(--img-scale))] [transform-origin:var(--img-origin)] sm:[transform:scale(var(--img-scale-sm))]"
+                        style={{
+                          "--img-scale": mobileScale,
+                          "--img-origin": transformOrigin,
+                          "--img-scale-sm": scale,
+                          width: "100%",
+                          height: "auto",
+                          display: "block",
+                        } as React.CSSProperties}
+                      />
+                    </div>
+                  )
+                })}
               </div>
             )}
           </div>

@@ -60,8 +60,10 @@ const ROW_LAYOUTS = [
 
 const PROJECT_IMAGE_STYLES: Record<string, {
   scale: number
+  mobileScale?: number
   paddingTop: number
   transformOrigin: string
+  mobileTransformOrigin?: string
 }> = {
   "daily-jobs-digest": {
     scale: 1,
@@ -70,6 +72,7 @@ const PROJECT_IMAGE_STYLES: Record<string, {
   },
   "benefits-platform": {
     scale: 1.2,
+    mobileScale: 1,
     paddingTop: 0,
     transformOrigin: "top left",
   },
@@ -91,6 +94,8 @@ function ProjectCard({ project }: { project: Project }) {
     paddingTop: 0,
     transformOrigin: "top left",
   }
+  const mobileScale = imgStyle.mobileScale ?? imgStyle.scale
+  const mobileTransformOrigin = imgStyle.mobileTransformOrigin ?? imgStyle.transformOrigin
 
   return (
     <Link href={`/projects/${project.slug}`} className={cn(CARD_CLASS, "h-[380px] flex-col sm:h-[420px]")}>
@@ -104,13 +109,16 @@ function ProjectCard({ project }: { project: Project }) {
        <img
         src={PROJECT_PREVIEW_IMAGES[project.slug]}
         alt=""
+        className="[transform:scale(var(--img-scale))] [transform-origin:var(--img-origin)] sm:[transform:scale(var(--img-scale-sm))] sm:[transform-origin:var(--img-origin-sm)]"
         style={{
-          transform: `scale(${imgStyle.scale})`,
-          transformOrigin: imgStyle.transformOrigin,
+          "--img-scale": mobileScale,
+          "--img-origin": mobileTransformOrigin,
+          "--img-scale-sm": imgStyle.scale,
+          "--img-origin-sm": imgStyle.transformOrigin,
           width: "100%",
           height: "auto",
           display: "block",
-        }}
+        } as React.CSSProperties}
       />
       </div>
       <CardBody project={project} />
