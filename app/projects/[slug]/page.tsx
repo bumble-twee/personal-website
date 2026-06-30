@@ -32,7 +32,7 @@ export default async function ProjectPage({
   if (!project) notFound()
 
   return (
-    <main className="min-h-svh px-6 pb-24 pt-28 md:px-12 md:pt-32">
+    <main className="min-h-svh px-6 pb-16 pt-20 md:px-12 md:pb-24 md:pt-32">
       <div className="mx-auto w-full max-w-screen-xl">
         <Link
           href="/#projects"
@@ -52,7 +52,7 @@ export default async function ProjectPage({
           </p>
         </header>
 
-        <div className="mt-12 grid items-start gap-12 md:mt-16 md:grid-cols-12">
+        <div className="mt-12 grid items-start gap-8 md:mt-16 md:gap-12 md:grid-cols-12">
           <aside className="md:col-span-3">
             <dl className="flex flex-col gap-6">
               {project.meta.map((item) => (
