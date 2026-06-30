@@ -24,7 +24,7 @@ export function Hero() {
             <img
               src="/candid.png"
               alt="Alena De La Cruz"
-              className="absolute bottom-0 left-0 aspect-[10/13] w-2/5 -translate-y-[8%] border border-border object-cover md:bottom-0 md:left-auto md:right-95 md:w-1/2 md:translate-y-[-70%]"
+              className="absolute bottom-0 left-0 aspect-[10/13] w-2/5 translate-y-[-70%] border border-border object-cover md:left-auto md:right-95 md:w-1/2"
             />
           </div>
         </div>
